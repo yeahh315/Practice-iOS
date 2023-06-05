@@ -8,6 +8,6 @@ iOS 개념 공부하기 위한 연습장 🔥 - ABC순 정리
 
 </br>
 
-- [Prperty](https://github.com/yeahh315/Practice-iOS/issues/2)
+- [Property](https://github.com/yeahh315/Practice-iOS/issues/2)
 
 </br>
