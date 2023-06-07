@@ -25,6 +25,7 @@ class SceneMainViewController: UIViewController {
 
         setStyle()
         setLayout()
+        printNavigationController()
     }
     
     // MARK: - Methods
@@ -75,6 +76,10 @@ class SceneMainViewController: UIViewController {
         modalButton.do {
             $0.setTitle("다시 띄우실겨?", for: .normal)
         }
+    }
+    
+    private func printNavigationController() {
+        print("navigationController 정보 : ", self.navigationController ?? "없어용")
     }
     
     // MARK: - @objc Function

@@ -24,6 +24,7 @@ class SceneSecondViewController: UIViewController {
 
         setStyle()
         setLayout()
+        printNavigationController()
     }
     
     // MARK: - Methods
@@ -62,6 +63,10 @@ class SceneSecondViewController: UIViewController {
             $0.width.equalTo(156)
             $0.center.equalToSuperview()
         }
+    }
+    
+    private func printNavigationController() {
+        print("navigationController 정보 : ", self.navigationController ?? "없어용")
     }
     
     @objc private func backButtonDidTap() {
