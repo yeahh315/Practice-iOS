@@ -54,7 +54,7 @@ class PropertyViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
 
-            style()
+            setStyle()
             setLayout()
         }
 
@@ -62,7 +62,7 @@ class PropertyViewController: UIViewController {
 
     private extension PropertyViewController {
         
-        func style() {
+        func setStyle() {
             
             view.backgroundColor = .white
         }
