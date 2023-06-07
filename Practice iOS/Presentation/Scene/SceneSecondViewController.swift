@@ -15,7 +15,7 @@ class SceneSecondViewController: UIViewController {
     // MARK: - Properties
 
     private let mainLabel = UILabel()
-    private let dismissButton = UIButton()
+    private let backButton = UIButton()
 
     // MARK: - View Life Cycle
 
@@ -38,34 +38,39 @@ class SceneSecondViewController: UIViewController {
             $0.textAlignment = .center
         }
         
-        dismissButton.do {
-            $0.setTitle("모달을 dismiss", for: .normal)
+        backButton.do {
+            $0.setTitle("뒤로가기", for: .normal)
             $0.titleLabel?.font = .boldSystemFont(ofSize: 12)
             $0.setTitleColor(.white, for: .normal)
             $0.backgroundColor = .systemPurple
             $0.makeRounded(radius: 5)
-            $0.addTarget(self, action: #selector(dismissButtonDidTap), for: .touchUpInside)
+            $0.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
         }
     }
     
     private func setLayout() {
         
-        view.addSubviews(mainLabel, dismissButton)
+        view.addSubviews(mainLabel, backButton)
         
         mainLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(dismissButton.snp.top).offset(-20)
+            $0.bottom.equalTo(backButton.snp.top).offset(-20)
         }
         
-        dismissButton.snp.makeConstraints {
+        backButton.snp.makeConstraints {
             $0.height.equalTo(32)
             $0.width.equalTo(156)
             $0.center.equalToSuperview()
         }
     }
     
-    @objc private func dismissButtonDidTap() {
+    @objc private func backButtonDidTap() {
 //        self.presentingViewController?.dismiss(animated: true)
-        self.dismiss(animated: true)
+//        self.dismiss(animated: true)
+        if (self.navigationController == nil) {
+            self.dismiss(animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }

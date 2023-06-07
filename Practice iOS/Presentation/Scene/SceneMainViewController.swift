@@ -16,6 +16,7 @@ class SceneMainViewController: UIViewController {
     // MARK: - Properties
 
     private let modalButton = UIButton()
+    private let navigationButton = UIButton()
 
     // MARK: - View Life Cycle
 
@@ -33,22 +34,39 @@ class SceneMainViewController: UIViewController {
         view.backgroundColor = .white
         
         modalButton.do {
-            $0.setTitle("모달을 띄우고 싶으신가요", for: .normal)
+            $0.setTitle("Modal - present", for: .normal)
             $0.titleLabel?.font = .boldSystemFont(ofSize: 12)
             $0.setTitleColor(.white, for: .normal)
             $0.backgroundColor = .systemBlue
             $0.makeRounded(radius: 5)
             $0.addTarget(self, action: #selector(modalButtonDidTap), for: .touchUpInside)
         }
+        
+        navigationButton.do {
+            $0.setTitle("Navigation Controller - Push", for: .normal)
+            $0.titleLabel?.font = .boldSystemFont(ofSize: 12)
+            $0.setTitleColor(.white, for: .normal)
+            $0.backgroundColor = .systemCyan
+            $0.makeRounded(radius: 5)
+            $0.addTarget(self, action: #selector(navigationButtonDidTap), for: .touchUpInside)
+        }
     }
     
     private func setLayout() {
         
-        view.addSubviews(modalButton)
+        view.addSubviews(modalButton,
+                         navigationButton)
         
         modalButton.snp.makeConstraints {
             $0.height.equalTo(32)
-            $0.width.equalTo(156)
+            $0.width.equalTo(200)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(navigationButton.snp.top).offset(-20)
+        }
+        
+        navigationButton.snp.makeConstraints {
+            $0.height.equalTo(32)
+            $0.width.equalTo(200)
             $0.center.equalToSuperview()
         }
     }
@@ -68,5 +86,10 @@ class SceneMainViewController: UIViewController {
 //        secondViewController.modalPresentationCapturesStatusBarAppearance = false
 //        secondViewController.isModalInPresentation = false
         self.present(secondViewController, animated: true, completion: changeButtonTitle)
+    }
+    
+    @objc private func navigationButtonDidTap() {
+        let secondViewController = SceneSecondViewController()
+        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
 }
