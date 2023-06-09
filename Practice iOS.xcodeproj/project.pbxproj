@@ -24,6 +24,7 @@
 		6BF366322A335645007681A0 /* NavigationMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF366312A335645007681A0 /* NavigationMainViewController.swift */; };
 		6BF366342A3397CD007681A0 /* NavigationSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF366332A3397CD007681A0 /* NavigationSecondViewController.swift */; };
 		6BF366362A339E7E007681A0 /* NavigationThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF366352A339E7E007681A0 /* NavigationThirdViewController.swift */; };
+		6BF366382A33A1A3007681A0 /* NavigationFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF366372A33A1A3007681A0 /* NavigationFourthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		6BF366312A335645007681A0 /* NavigationMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMainViewController.swift; sourceTree = "<group>"; };
 		6BF366332A3397CD007681A0 /* NavigationSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSecondViewController.swift; sourceTree = "<group>"; };
 		6BF366352A339E7E007681A0 /* NavigationThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationThirdViewController.swift; sourceTree = "<group>"; };
+		6BF366372A33A1A3007681A0 /* NavigationFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFourthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				6BF366312A335645007681A0 /* NavigationMainViewController.swift */,
 				6BF366332A3397CD007681A0 /* NavigationSecondViewController.swift */,
 				6BF366352A339E7E007681A0 /* NavigationThirdViewController.swift */,
+				6BF366372A33A1A3007681A0 /* NavigationFourthViewController.swift */,
 			);
 			path = NavigationViewController;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BF366382A33A1A3007681A0 /* NavigationFourthViewController.swift in Sources */,
 				6BC5CBF22A2DE3A30009AFB0 /* PropertyViewController.swift in Sources */,
 				6BF366322A335645007681A0 /* NavigationMainViewController.swift in Sources */,
 				6BF366342A3397CD007681A0 /* NavigationSecondViewController.swift in Sources */,

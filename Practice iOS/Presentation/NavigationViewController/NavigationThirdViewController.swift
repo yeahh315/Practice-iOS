@@ -14,6 +14,9 @@ class NavigationThirdViewController: UIViewController {
     private let mainLabel = UILabel()
     private let stateLabel = UILabel()
     private let backButton = UIButton()
+    private let navigationButton = UIButton()
+    private let backToStartButton = UIButton()
+
 
     // MARK: - View Life Cycle
 
@@ -56,11 +59,29 @@ class NavigationThirdViewController: UIViewController {
             $0.makeRounded(radius: 5)
             $0.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
         }
+        
+        navigationButton.do {
+            $0.setTitle("다음으로", for: .normal)
+            $0.titleLabel?.font = .boldSystemFont(ofSize: 12)
+            $0.setTitleColor(.white, for: .normal)
+            $0.backgroundColor = .systemCyan
+            $0.makeRounded(radius: 5)
+            $0.addTarget(self, action: #selector(navigationButtonDidTap), for: .touchUpInside)
+        }
+        
+        backToStartButton.do {
+            $0.setTitle("처음으로", for: .normal)
+            $0.titleLabel?.font = .boldSystemFont(ofSize: 12)
+            $0.setTitleColor(.white, for: .normal)
+            $0.backgroundColor = .systemRed
+            $0.makeRounded(radius: 5)
+            $0.addTarget(self, action: #selector(backToStartButtonDidTap), for: .touchUpInside)
+        }
     }
     
     private func setLayout() {
         
-        view.addSubviews(mainLabel, stateLabel, backButton)
+        view.addSubviews(mainLabel, stateLabel, backButton, navigationButton, backToStartButton)
         
         mainLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -69,14 +90,27 @@ class NavigationThirdViewController: UIViewController {
         
         stateLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.centerY.equalToSuperview()
+            $0.bottom.equalTo(backButton.snp.top).offset(-20)
         }
         
         backButton.snp.makeConstraints {
             $0.height.equalTo(32)
-            $0.width.equalTo(156)
+            $0.width.equalTo(200)
+            $0.center.equalToSuperview()
+        }
+        
+        navigationButton.snp.makeConstraints {
+            $0.height.equalTo(32)
+            $0.width.equalTo(200)
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(stateLabel.snp.bottom).offset(20)
+            $0.top.equalTo(backButton.snp.bottom).offset(20)
+        }
+        
+        backToStartButton.snp.makeConstraints {
+            $0.height.equalTo(32)
+            $0.width.equalTo(200)
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(navigationButton.snp.bottom).offset(20)
         }
     }
     
@@ -94,6 +128,20 @@ class NavigationThirdViewController: UIViewController {
             self.dismiss(animated: true)
         } else {
             self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @objc private func navigationButtonDidTap() {
+        let secondViewController = NavigationFourthViewController()
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    
+    @objc private func backToStartButtonDidTap() {
+        
+        if (self.navigationController == nil) {
+            self.dismiss(animated: true)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
 }
