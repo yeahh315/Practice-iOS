@@ -21,6 +21,8 @@
 		6BE2D2862A2DDF3B0062FADB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE2D2852A2DDF3B0062FADB /* UIView+.swift */; };
 		6BE2D2882A2DE1880062FADB /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE2D2872A2DE1880062FADB /* UIStackView+.swift */; };
 		6BE2D28B2A2DE2EE0062FADB /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE2D28A2A2DE2EE0062FADB /* UIButton+.swift */; };
+		6BF366322A335645007681A0 /* NavigationMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF366312A335645007681A0 /* NavigationMainViewController.swift */; };
+		6BF366342A3397CD007681A0 /* NavigationSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF366332A3397CD007681A0 /* NavigationSecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		6BE2D2852A2DDF3B0062FADB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		6BE2D2872A2DE1880062FADB /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		6BE2D28A2A2DE2EE0062FADB /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		6BF366312A335645007681A0 /* NavigationMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMainViewController.swift; sourceTree = "<group>"; };
+		6BF366332A3397CD007681A0 /* NavigationSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 		6BA4F2BD2A2A57C2002CFBFF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				6BF366302A335530007681A0 /* NavigationViewController */,
 				6BC5CC022A2FBA5A0009AFB0 /* Scene */,
 				6BC5CBF02A2DE37B0009AFB0 /* Property */,
 				6BA4F2AA2A2A4B0E002CFBFF /* ViewController.swift */,
@@ -209,6 +214,15 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		6BF366302A335530007681A0 /* NavigationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6BF366312A335645007681A0 /* NavigationMainViewController.swift */,
+				6BF366332A3397CD007681A0 /* NavigationSecondViewController.swift */,
+			);
+			path = NavigationViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,6 +302,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BC5CBF22A2DE3A30009AFB0 /* PropertyViewController.swift in Sources */,
+				6BF366322A335645007681A0 /* NavigationMainViewController.swift in Sources */,
+				6BF366342A3397CD007681A0 /* NavigationSecondViewController.swift in Sources */,
 				6BE2D2882A2DE1880062FADB /* UIStackView+.swift in Sources */,
 				6BE2D28B2A2DE2EE0062FADB /* UIButton+.swift in Sources */,
 				6BE2D2862A2DDF3B0062FADB /* UIView+.swift in Sources */,
