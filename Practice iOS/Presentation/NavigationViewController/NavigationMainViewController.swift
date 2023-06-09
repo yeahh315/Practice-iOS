@@ -21,6 +21,11 @@ class NavigationMainViewController: UIViewController {
 
         setStyle()
         setLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         getViewController()
     }
 
@@ -31,7 +36,7 @@ class NavigationMainViewController: UIViewController {
         view.backgroundColor = .white
         
         navigationButton.do {
-            $0.setTitle("Navigation Controller - Push", for: .normal)
+            $0.setTitle("다음으로", for: .normal)
             $0.titleLabel?.font = .boldSystemFont(ofSize: 12)
             $0.setTitleColor(.white, for: .normal)
             $0.backgroundColor = .systemCyan

@@ -1,5 +1,5 @@
 //
-//  NavigationSecondViewController.swift
+//  NavigationThirdViewController.swift
 //  Practice iOS
 //
 //  Created by 김다예 on 2023/06/10.
@@ -7,14 +7,13 @@
 
 import UIKit
 
-class NavigationSecondViewController: UIViewController {
+class NavigationThirdViewController: UIViewController {
 
     // MARK: - Properties
 
     private let mainLabel = UILabel()
     private let stateLabel = UILabel()
     private let backButton = UIButton()
-    private let navigationButton = UIButton()
 
     // MARK: - View Life Cycle
 
@@ -57,20 +56,11 @@ class NavigationSecondViewController: UIViewController {
             $0.makeRounded(radius: 5)
             $0.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
         }
-        
-        navigationButton.do {
-            $0.setTitle("다음으로", for: .normal)
-            $0.titleLabel?.font = .boldSystemFont(ofSize: 12)
-            $0.setTitleColor(.white, for: .normal)
-            $0.backgroundColor = .systemCyan
-            $0.makeRounded(radius: 5)
-            $0.addTarget(self, action: #selector(navigationButtonDidTap), for: .touchUpInside)
-        }
     }
     
     private func setLayout() {
         
-        view.addSubviews(mainLabel, stateLabel, backButton, navigationButton)
+        view.addSubviews(mainLabel, stateLabel, backButton)
         
         mainLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -84,16 +74,9 @@ class NavigationSecondViewController: UIViewController {
         
         backButton.snp.makeConstraints {
             $0.height.equalTo(32)
-            $0.width.equalTo(200)
+            $0.width.equalTo(156)
             $0.centerX.equalToSuperview()
             $0.top.equalTo(stateLabel.snp.bottom).offset(20)
-        }
-        
-        navigationButton.snp.makeConstraints {
-            $0.height.equalTo(32)
-            $0.width.equalTo(200)
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(backButton.snp.bottom).offset(20)
         }
     }
     
@@ -112,10 +95,5 @@ class NavigationSecondViewController: UIViewController {
         } else {
             self.navigationController?.popViewController(animated: true)
         }
-    }
-    
-    @objc private func navigationButtonDidTap() {
-        let secondViewController = NavigationThirdViewController()
-        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
 }
