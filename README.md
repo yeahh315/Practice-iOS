@@ -10,6 +10,7 @@ iOS 개념 공부하기 위한 연습장 🔥 - ABC 가나다 순 정리
 
 - [NavigationController](https://github.com/yeahh315/Practice-iOS/issues/5)
 - [NavigationController 정리](https://learned-aspen-af2.notion.site/UINavigationController-9965864c48314d5a955ea0c28dccce04?pvs=4)
+- [Navigation Bar]
 
 </br>
 
@@ -21,10 +22,6 @@ iOS 개념 공부하기 위한 연습장 🔥 - ABC 가나다 순 정리
 
 - [TableView](https://github.com/yeahh315/Practice-iOS/issues/3)
 - [TableView 정리](https://learned-aspen-af2.notion.site/TableView-031a08221ac647318ed6c1b31b2117e6?pvs=4)
-
-</br>
-
-- [데이터 전달]
 
 </br>
 
