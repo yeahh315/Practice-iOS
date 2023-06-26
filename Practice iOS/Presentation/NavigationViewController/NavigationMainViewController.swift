@@ -21,6 +21,7 @@ class NavigationMainViewController: UIViewController {
 
         setStyle()
         setLayout()
+        setNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,13 +34,13 @@ class NavigationMainViewController: UIViewController {
     
     private func setStyle() {
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray5
         
         navigationButton.do {
             $0.setTitle("다음으로", for: .normal)
             $0.titleLabel?.font = .boldSystemFont(ofSize: 12)
             $0.setTitleColor(.white, for: .normal)
-            $0.backgroundColor = .systemCyan
+            $0.backgroundColor = .systemPurple
             $0.makeRounded(radius: 5)
             $0.addTarget(self, action: #selector(navigationButtonDidTap), for: .touchUpInside)
         }
@@ -66,6 +67,41 @@ class NavigationMainViewController: UIViewController {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(stateLabel.snp.bottom).offset(20)
         }
+    }
+    
+    private func setNavigationBar() {
+        
+//        self.navigationController?.navigationBar.backgroundColor = .systemPurple
+
+        // appearance 선언
+        let appearance = UINavigationBarAppearance()
+        
+//        // 투명도 설정
+//        appearance.configureWithDefaultBackground()
+//        appearance.configureWithOpaqueBackground()
+        appearance.configureWithTransparentBackground()
+
+//        // 투명도 관계 없이 appearance 색상 설정
+        appearance.backgroundColor = .systemIndigo
+        
+        // title 색 설정
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        self.navigationController?.navigationBar.standardAppearance = appearance
+        self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+
+        // title 설정
+        self.navigationItem.title = "테스트"
+
+        // backButton 커스텀
+        // 방법 1
+        self.navigationItem.backButtonTitle = "뒤로가기"
+        // 방법 2
+        let backBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
+        // backButton 색 설정
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     private func getViewController() {

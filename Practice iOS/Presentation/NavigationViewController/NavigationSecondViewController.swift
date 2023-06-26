@@ -25,6 +25,7 @@ class NavigationSecondViewController: UIViewController {
 
         setStyle()
         setLayout()
+        setNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,6 +113,20 @@ class NavigationSecondViewController: UIViewController {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(navigationButton.snp.bottom).offset(20)
         }
+    }
+    
+    private func setNavigationBar() {
+
+        // title 설정
+        self.navigationItem.title = "테스트2"
+
+        // backButton 커스텀
+        // 방법 1
+        self.navigationItem.backButtonTitle = "뒤로가기"
+        // 방법 2
+        let backBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
     }
     
     private func getViewController() {
