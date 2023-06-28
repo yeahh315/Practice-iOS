@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6B5366B12A2A5C5F0014AA5E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6B5366B02A2A5C5F0014AA5E /* SnapKit */; };
 		6B5366B42A2A5C7A0014AA5E /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 6B5366B32A2A5C7A0014AA5E /* Then */; };
+		6BA1FDDF2A4C19AD00741F1B /* DataForwardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA1FDDE2A4C19AD00741F1B /* DataForwardingViewController.swift */; };
+		6BA1FDE12A4C19CB00741F1B /* DataForwardingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA1FDE02A4C19CB00741F1B /* DataForwardingSecondViewController.swift */; };
 		6BA4F2A72A2A4B0E002CFBFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA4F2A62A2A4B0E002CFBFF /* AppDelegate.swift */; };
 		6BA4F2A92A2A4B0E002CFBFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA4F2A82A2A4B0E002CFBFF /* SceneDelegate.swift */; };
 		6BA4F2AB2A2A4B0E002CFBFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA4F2AA2A2A4B0E002CFBFF /* ViewController.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6BA1FDDE2A4C19AD00741F1B /* DataForwardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForwardingViewController.swift; sourceTree = "<group>"; };
+		6BA1FDE02A4C19CB00741F1B /* DataForwardingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForwardingSecondViewController.swift; sourceTree = "<group>"; };
 		6BA4F2A32A2A4B0E002CFBFF /* Practice iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA4F2A62A2A4B0E002CFBFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BA4F2A82A2A4B0E002CFBFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BA1FDDD2A4C18DB00741F1B /* DataForwarding */ = {
+			isa = PBXGroup;
+			children = (
+				6BA1FDDE2A4C19AD00741F1B /* DataForwardingViewController.swift */,
+				6BA1FDE02A4C19CB00741F1B /* DataForwardingSecondViewController.swift */,
+			);
+			path = DataForwarding;
+			sourceTree = "<group>";
+		};
 		6BA4F29A2A2A4B0E002CFBFF = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +137,7 @@
 		6BA4F2BD2A2A57C2002CFBFF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				6BA1FDDD2A4C18DB00741F1B /* DataForwarding */,
 				6BF366302A335530007681A0 /* NavigationViewController */,
 				6BC5CC022A2FBA5A0009AFB0 /* Scene */,
 				6BC5CBF02A2DE37B0009AFB0 /* Property */,
@@ -314,9 +328,11 @@
 				6BE2D2882A2DE1880062FADB /* UIStackView+.swift in Sources */,
 				6BE2D28B2A2DE2EE0062FADB /* UIButton+.swift in Sources */,
 				6BE2D2862A2DDF3B0062FADB /* UIView+.swift in Sources */,
+				6BA1FDDF2A4C19AD00741F1B /* DataForwardingViewController.swift in Sources */,
 				6BC5CC042A2FBC300009AFB0 /* SceneMainViewController.swift in Sources */,
 				6BA4F2AB2A2A4B0E002CFBFF /* ViewController.swift in Sources */,
 				6BC5CBF42A2F125A0009AFB0 /* ImageLiteral.swift in Sources */,
+				6BA1FDE12A4C19CB00741F1B /* DataForwardingSecondViewController.swift in Sources */,
 				6BF366362A339E7E007681A0 /* NavigationThirdViewController.swift in Sources */,
 				6BC5CC062A3063B20009AFB0 /* SceneSecondViewController.swift in Sources */,
 				6BA4F2A72A2A4B0E002CFBFF /* AppDelegate.swift in Sources */,
