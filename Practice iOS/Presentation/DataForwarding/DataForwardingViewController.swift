@@ -82,10 +82,6 @@ class DataForwardingViewController: UIViewController {
 
     @objc private func modalButtonDidTap() {
         let secondViewController = DataForwardingSecondViewController()
-//        secondViewController.modalTransitionStyle = .flipHorizontal
-//        secondViewController.modalPresentationStyle = .fullScreen
-//        secondViewController.modalPresentationCapturesStatusBarAppearance = false
-//        secondViewController.isModalInPresentation = false
         self.present(secondViewController, animated: true, completion: changeButtonTitle)
     }
     

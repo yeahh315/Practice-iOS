@@ -67,8 +67,6 @@ class DataForwardingSecondViewController: UIViewController {
     }
     
     @objc private func backButtonDidTap() {
-//        self.presentingViewController?.dismiss(animated: true)
-//        self.dismiss(animated: true)
         if (self.navigationController == nil) {
             self.dismiss(animated: true)
         } else {
