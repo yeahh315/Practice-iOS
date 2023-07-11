@@ -8,10 +8,22 @@
 import UIKit
 
 import PhotosUI
+import Photos
+
+protocol PHPickerProtocol: AnyObject {
+    func setupPicker()
+    func presentLimitedLibrary()
+    func presentImageLibrary()
+    func presentDenidAlert()
+    func presentLimitedAlert()
+    func presentLimitedImageView()
+}
 
 class BasePHPickerViewController {
-
-    static let shared = BasePHPickerViewController()
+    
+    weak var delegate: PHPickerProtocol?
+    
+    var pickerImage: UIImage?
 
     var fetchResult = PHFetchResult<PHAsset>()
     var canAccessImages: [UIImage] = []
@@ -19,8 +31,9 @@ class BasePHPickerViewController {
         let scale = UIScreen.main.scale
         return CGSize(width: (UIScreen.main.bounds.width / 3) * scale, height: 100 * scale)
     }
+    var selectedImage: UIImage?
 
-    let phpickerViewController: PHPickerViewController = {
+    lazy var phpickerViewController: PHPickerViewController = {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 1 // 최대로 선택할 사진 및 영상의 개수
 
@@ -29,6 +42,7 @@ class BasePHPickerViewController {
         configuration.filter = .images
 
         let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
         return picker
     }()
     
@@ -46,37 +60,41 @@ class BasePHPickerViewController {
         return alert
     }()
     
-    let limitedAlert: UIAlertController = {
+    lazy var limitedAlert: UIAlertController = {
         let title: String = "pophory -ios 이(가) 사용자의 사진에 접근하려고 합니다."
         let message: String = "앱에 사진을 업로드하기 위해 사진 라이브러리에 엑세스를 허용합니다."
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
+        let confirm = UIAlertAction(title: "더 많은 사진 선택", style: .default) { (UIAlertAction) in
+            self.delegate?.presentLimitedLibrary()
+        }
+        let cancle = UIAlertAction(title: "현재 선택 항목 유지", style: .default) { (UIAlertAction) in
+            self.delegate?.presentLimitedImageView()
+        }
+
+        alert.addAction(confirm)
+        alert.addAction(cancle)
+        
         return alert
     }()
 
-//    func setupImagePermission() {
-//
-//        let requiredAccessLevel: PHAccessLevel = .readWrite
-//        PHPhotoLibrary.requestAuthorization(for: requiredAccessLevel) { authorizationStatus in
-//            switch authorizationStatus {
-//            case .authorized:
-//                self.presentImage()
-//            case .limited:
-//                self.setLimited()
-//            case .denied:
-//                self.AuthSettingOpen()
-//            default:
-//                break
-//            }
-//        }
-//    }
-
-
+    func setupImagePermission() {
+        let requiredAccessLevel: PHAccessLevel = .readWrite
+        PHPhotoLibrary.requestAuthorization(for: requiredAccessLevel) { authorizationStatus in
+            switch authorizationStatus {
+            case .authorized:
+                self.delegate?.presentImageLibrary()
+            case .limited:
+                self.delegate?.presentLimitedImageView()
+            case .denied:
+                self.delegate?.presentDenidAlert()
+            default:
+                break
+            }
+        }
+    }
     
-
-    
-
-    func setLimited() -> [UIImage] {
+    func fetchLimitedImages() -> [UIImage] {
 
         self.canAccessImages = []
         let requestOptions = PHImageRequestOptions()
@@ -95,4 +113,24 @@ class BasePHPickerViewController {
         return canAccessImages
     }
 }
-
+extension BasePHPickerViewController: PHPickerViewControllerDelegate {
+    
+    // 이미지 선택 완료 시 호출될 함수
+    public func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        
+        picker.dismiss(animated: true, completion: nil) // 갤러리 dismiss
+        
+        let itemProvider = results.first?.itemProvider // result의 첫 번째 배열의 값 - ‼️ itemProvider
+        
+        if let itemProvider = itemProvider,                     // itemProvider가 존재하고,
+           itemProvider.canLoadObject(ofClass: UIImage.self) { // itemProvider가 불러온 이미지 값 가져올 수 있다면 실행
+            
+            itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                
+                guard let selectedImage = image as? UIImage else { return }
+                self.pickerImage = selectedImage
+                self.delegate?.setupPicker()
+            }
+        }
+    }
+}
