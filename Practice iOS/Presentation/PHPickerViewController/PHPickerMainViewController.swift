@@ -102,8 +102,21 @@ extension PHPickerMainViewController {
     }
     
     private func setupImagePermission() {
-        PHPhotoLibrary.requestAuthorization({ status in
-            switch status{
+//        PHPhotoLibrary.requestAuthorization({ status in
+//            switch status{
+//            case .authorized:
+//                self.presentImage()
+//            case .limited:
+//                self.selectLimited()
+//            case .denied:
+//                self.AuthSettingOpen()
+//            default:
+//                break
+//            }
+//        })
+        let requiredAccessLevel: PHAccessLevel = .readWrite
+        PHPhotoLibrary.requestAuthorization(for: requiredAccessLevel) { authorizationStatus in
+            switch authorizationStatus {
             case .authorized:
                 self.presentImage()
             case .limited:
@@ -113,7 +126,7 @@ extension PHPickerMainViewController {
             default:
                 break
             }
-        })
+        }
     }
     
     func presentImage() {
@@ -124,7 +137,7 @@ extension PHPickerMainViewController {
     
     func AuthSettingOpen() {
         DispatchQueue.main.async {
-            let titleMessage: String = "사진을 업로드하기 위해 설정을 눌러 사진 접근을 허용해주세요"
+            let titleMessage: String = "사진을 업로드하기 위해 설정을 눌러 사진 접근을 허용해주세요."
             let alert = UIAlertController(title: titleMessage, message: nil, preferredStyle: .alert)
             
             let cancle = UIAlertAction(title: "확인", style: .default)
@@ -140,9 +153,25 @@ extension PHPickerMainViewController {
     }
     
     func selectLimited() {
-
-            PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
-    
+//        PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
+        DispatchQueue.main.async {
+            
+            let title: String = "pophory -ios 이(가) 사용자의 사진에 접근하려고 합니다."
+            let message: String = "앱에 사진을 업로드하기 위해 사진 라이브러리에 엑세스를 허용합니다."
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            let confirm = UIAlertAction(title: "더 많은 사진 선택", style: .default) { (UIAlertAction) in
+                PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
+            }
+            let cancle = UIAlertAction(title: "현재 선택 항목 유지", style: .default) { (UIAlertAction) in
+                
+            }
+            
+            alert.addAction(confirm)
+            alert.addAction(cancle)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: - @objc Function
@@ -151,5 +180,3 @@ extension PHPickerMainViewController {
         setupImagePermission()
     }
 }
-
-
