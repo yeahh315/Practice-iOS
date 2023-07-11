@@ -20,6 +20,9 @@
 		6BC5CC062A3063B20009AFB0 /* SceneSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5CC052A3063B20009AFB0 /* SceneSecondViewController.swift */; };
 		6BC63CCE2A5C6EF5001DF31F /* PHPickerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC63CCD2A5C6EF5001DF31F /* PHPickerMainViewController.swift */; };
 		6BC63CD02A5C70D4001DF31F /* PHPickerSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC63CCF2A5C70D4001DF31F /* PHPickerSecondViewController.swift */; };
+		6BC63CD22A5D1A81001DF31F /* PHPickerLimitedPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC63CD12A5D1A81001DF31F /* PHPickerLimitedPhotoViewController.swift */; };
+		6BC63CD42A5D1DD7001DF31F /* PHPickerLimitedPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC63CD32A5D1DD7001DF31F /* PHPickerLimitedPhotoCollectionViewCell.swift */; };
+		6BC63CD62A5D305C001DF31F /* BasePHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC63CD52A5D305C001DF31F /* BasePHPickerViewController.swift */; };
 		6BE2D2862A2DDF3B0062FADB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE2D2852A2DDF3B0062FADB /* UIView+.swift */; };
 		6BE2D2882A2DE1880062FADB /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE2D2872A2DE1880062FADB /* UIStackView+.swift */; };
 		6BE2D28B2A2DE2EE0062FADB /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE2D28A2A2DE2EE0062FADB /* UIButton+.swift */; };
@@ -43,6 +46,9 @@
 		6BC5CC052A3063B20009AFB0 /* SceneSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneSecondViewController.swift; sourceTree = "<group>"; };
 		6BC63CCD2A5C6EF5001DF31F /* PHPickerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerMainViewController.swift; sourceTree = "<group>"; };
 		6BC63CCF2A5C70D4001DF31F /* PHPickerSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerSecondViewController.swift; sourceTree = "<group>"; };
+		6BC63CD12A5D1A81001DF31F /* PHPickerLimitedPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerLimitedPhotoViewController.swift; sourceTree = "<group>"; };
+		6BC63CD32A5D1DD7001DF31F /* PHPickerLimitedPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerLimitedPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		6BC63CD52A5D305C001DF31F /* BasePHPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePHPickerViewController.swift; sourceTree = "<group>"; };
 		6BE2D2852A2DDF3B0062FADB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		6BE2D2872A2DE1880062FADB /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		6BE2D28A2A2DE2EE0062FADB /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
@@ -228,6 +234,9 @@
 			children = (
 				6BC63CCD2A5C6EF5001DF31F /* PHPickerMainViewController.swift */,
 				6BC63CCF2A5C70D4001DF31F /* PHPickerSecondViewController.swift */,
+				6BC63CD12A5D1A81001DF31F /* PHPickerLimitedPhotoViewController.swift */,
+				6BC63CD32A5D1DD7001DF31F /* PHPickerLimitedPhotoCollectionViewCell.swift */,
+				6BC63CD52A5D305C001DF31F /* BasePHPickerViewController.swift */,
 			);
 			path = PHPickerViewController;
 			sourceTree = "<group>";
@@ -323,6 +332,8 @@
 			files = (
 				6BF366382A33A1A3007681A0 /* NavigationFourthViewController.swift in Sources */,
 				6BC5CBF22A2DE3A30009AFB0 /* PropertyViewController.swift in Sources */,
+				6BC63CD62A5D305C001DF31F /* BasePHPickerViewController.swift in Sources */,
+				6BC63CD42A5D1DD7001DF31F /* PHPickerLimitedPhotoCollectionViewCell.swift in Sources */,
 				6BF366322A335645007681A0 /* NavigationMainViewController.swift in Sources */,
 				6BF366342A3397CD007681A0 /* NavigationSecondViewController.swift in Sources */,
 				6BE2D2882A2DE1880062FADB /* UIStackView+.swift in Sources */,
@@ -333,6 +344,7 @@
 				6BA4F2AB2A2A4B0E002CFBFF /* ViewController.swift in Sources */,
 				6BC5CBF42A2F125A0009AFB0 /* ImageLiteral.swift in Sources */,
 				6BF366362A339E7E007681A0 /* NavigationThirdViewController.swift in Sources */,
+				6BC63CD22A5D1A81001DF31F /* PHPickerLimitedPhotoViewController.swift in Sources */,
 				6BC5CC062A3063B20009AFB0 /* SceneSecondViewController.swift in Sources */,
 				6BA4F2A72A2A4B0E002CFBFF /* AppDelegate.swift in Sources */,
 				6BA4F2A92A2A4B0E002CFBFF /* SceneDelegate.swift in Sources */,

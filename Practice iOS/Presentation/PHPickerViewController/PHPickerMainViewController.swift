@@ -7,11 +7,21 @@
 
 import UIKit
 
+import Photos
 import PhotosUI
 import SnapKit
 import Then
 
 class PHPickerMainViewController: UIViewController {
+    
+    var fetchResult = PHFetchResult<PHAsset>()
+    var canAccessImages: [UIImage] = []
+    var thumbnailSize: CGSize {
+        let scale = UIScreen.main.scale
+        return CGSize(width: (UIScreen.main.bounds.width / 3) * scale, height: 100 * scale)
+    }
+    let limitedViewController = PHPickerLimitedPhotoViewController()
+    
     
     // MARK: - PHPickerViewController 적용
     
@@ -102,25 +112,14 @@ extension PHPickerMainViewController {
     }
     
     private func setupImagePermission() {
-//        PHPhotoLibrary.requestAuthorization({ status in
-//            switch status{
-//            case .authorized:
-//                self.presentImage()
-//            case .limited:
-//                self.selectLimited()
-//            case .denied:
-//                self.AuthSettingOpen()
-//            default:
-//                break
-//            }
-//        })
+
         let requiredAccessLevel: PHAccessLevel = .readWrite
         PHPhotoLibrary.requestAuthorization(for: requiredAccessLevel) { authorizationStatus in
             switch authorizationStatus {
             case .authorized:
                 self.presentImage()
             case .limited:
-                self.selectLimited()
+                self.setLimited()
             case .denied:
                 self.AuthSettingOpen()
             default:
@@ -153,7 +152,7 @@ extension PHPickerMainViewController {
     }
     
     func selectLimited() {
-//        PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
+        //        PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
         DispatchQueue.main.async {
             
             let title: String = "pophory -ios 이(가) 사용자의 사진에 접근하려고 합니다."
@@ -164,7 +163,7 @@ extension PHPickerMainViewController {
                 PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
             }
             let cancle = UIAlertAction(title: "현재 선택 항목 유지", style: .default) { (UIAlertAction) in
-                
+                self.setLimited()
             }
             
             alert.addAction(confirm)
@@ -174,9 +173,33 @@ extension PHPickerMainViewController {
         }
     }
     
+    func setLimited() {
+        
+        self.canAccessImages = []
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.isSynchronous = true
+        
+        let fetchOptions = PHFetchOptions()
+        self.fetchResult = PHAsset.fetchAssets(with: fetchOptions)
+        self.fetchResult.enumerateObjects { (asset, _, _) in
+            PHImageManager().requestImage(for: asset, targetSize: self.thumbnailSize, contentMode: .aspectFill, options: requestOptions) { (image, info) in
+                guard let image = image else { return }
+                self.canAccessImages.append(image)
+                
+            }
+        }
+        DispatchQueue.main.async {
+            self.limitedViewController.setImageDummy(forImage: self.canAccessImages)
+
+            self.navigationController?.pushViewController(self.limitedViewController, animated: true)
+        }
+    }
+    
+    
     // MARK: - @objc Function
     
     @objc private func onClickedNextButton() {
         setupImagePermission()
     }
+    
 }
