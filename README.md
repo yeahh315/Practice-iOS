@@ -3,7 +3,7 @@ iOS 개념 공부하기 위한 연습장 🔥 - ABC 가나다 순 정리
 
 </br>
 
-[ActivityViewController](https://github.com/yeahh315/Practice-iOS/issues/10)
+- [ActivityViewController](https://github.com/yeahh315/Practice-iOS/issues/10)
 
 </br>
 
